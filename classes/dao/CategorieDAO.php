@@ -41,14 +41,30 @@ catch (PDOException $e) {
 }
 }
 
-// supprimer des catégories 
+// supprimer des catégories => il nous faudra des identifiants pour cela 
+
+public function deletebyID($id)
+{
 
 
-
-
-
+    try {
+        $requete = $this->connexion->pdo->prepare("DELETE FROM categories WHERE id = ?");
+       $requete->execute([$id]);
+        return true;
+    } catch (PDOException $e) {
+        // Gerer les erreurs de suppression ici
+        return false;
+    }
+}
 
 
 
 
 }
+
+
+?>
+
+
+
+
