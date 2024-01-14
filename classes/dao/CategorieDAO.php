@@ -57,7 +57,22 @@ public function deletebyID($id)
     }
 }
 
+// lister les catégories
+public function getAll() {
+    try {
+        $requete = $this->connexion->pdo->query("SELECT * FROM categories");
+        $categories = [];
 
+        while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
+            $categories[] = new CategorieModel($row['id'],$row['nom']);
+        }
+
+        return $categories;
+    } catch (PDOException $e) {
+       
+        return [];
+    }
+}
 
 
 }
