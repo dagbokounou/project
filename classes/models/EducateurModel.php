@@ -7,15 +7,19 @@ class EducateurModel extends LicencieModel{
 
     private $email;
     private $mdp;// represente le mot de passe 
+    private $admin ;
 
-public function __construct($email,$mdp){
+public function __construct($email,$mdp,$estadmin){
 
 $this->email=$email;
 $this->mdp=$mdp;
+$this->estadmin=$estadmin;
 
 }
 
-// on pourra utiliser les méthodes de licencie car elles sont publiques 
+public function getAdmin(){
+    return $this->estadmin;
+}
 public function getEmail(){
     return $this->email;
 }
@@ -30,5 +34,11 @@ $this->email=$email;
 public function setMdp($mdp){
     $this->mdp=$mdp;
     }
+
+    public function setAdmin($estadmin){
+        $this->mdp=$estadmin;
+        }
 }
+
+
 ?>

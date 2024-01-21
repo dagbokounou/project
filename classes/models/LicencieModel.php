@@ -6,13 +6,15 @@ private $nom;// nom ----
 private $prenom;// premon---
 // le constructeur 
 private $contact ;
-public function __construct($id,$nom,$prenom,$contact)
+private $categorie;
+public function __construct($id,$nom,$prenom,$contact,$categorie)
 {
 
     $this->id= $id;
     $this ->nom= $nom;
     $this-> prenom= $prenom;
     $this->contact=$contact;
+    $this->categorie=$categorie;
 }
 // les getters
 public function getID (){
@@ -21,6 +23,10 @@ public function getID (){
 
 public function getNom (){
     return $this->nom;
+}
+
+public function getCategorie(){
+    return $this->categorie;
 }
 
 public function getPrenom (){
@@ -33,7 +39,9 @@ public function getContact (){
 public function setID ($id){
     $this->id=$id;
 }
-
+public function setCategorie ($categorie){
+    $this->categorie=$categorie;
+}
 
 public function setNom ($nom){
     $this->nom=$nom;
