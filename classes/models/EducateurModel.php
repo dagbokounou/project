@@ -7,7 +7,7 @@ class EducateurModel extends LicencieModel{
 
     private $email;
     private $mdp;
-    private $admin ;
+    private $estadmin ;
 
 public function __construct($id, $nom, $prenom, $contact, $categorie,$email,$mdp,$estadmin){
 parent::__construct($id, $nom, $prenom, $contact, $categorie);

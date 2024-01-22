@@ -19,8 +19,8 @@ class AddEducateurController {
             $nom = $_POST['nom'];
             $prenom = $_POST['prenom'];
             $email = $_POST['email'];
-            $motDePasse = $_POST['mot_de_passe'];
-            $isAdmin = isset($_POST['is_admin']) ? true : false;
+            $motDePasse = $_POST['mdp'];
+            $isAdmin = isset($_POST['estadmin']) ? true : false;
             
 
             // Valider les données du formulaire (ajoutez des validations si nécessaire)

@@ -8,7 +8,7 @@ class DeleteCategorieController {
     }
 
     public function deleteContact($categorieID) {
-        // Récupérer le contact à supprimer en utilisant son ID
+        // Récupérer la categorie à supprimer en utilisant son ID
         $categorie = $this->categorieDAO->getId($categorieID);
 
         if (!$categorie) {
