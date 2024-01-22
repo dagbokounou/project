@@ -8,7 +8,7 @@ class ViewEducateurController {
 
     public function viewEducateur($educateurId) {
         // Récupérer l'educateur'à afficher en utilisant son ID
-        $contact = $this->categorieDAO->getID($categorieId);
+        $educateur = $this->educateurDAO->getID($educateurId);
 
         // Inclure la vue pour afficher les détails de l'educateur
         include('views/view_educateur.php');

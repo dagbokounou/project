@@ -6,9 +6,9 @@ class ViewCategorieController {
         $this->categorieDAO = $categorieDAO;
     }
 
-    public function viewCategorie($contactNom) {
+    public function viewCategorie($categorieId) {
         // Récupérer la categorie à afficher en utilisant son ID
-        $contact = $this->categorieDAO->getID($categorieId);
+        $categorie = $this->categorieDAO->getID($categorieId);
 
         // Inclure la vue pour afficher les détails de la categorie
         include('views/view_categorie.php');
