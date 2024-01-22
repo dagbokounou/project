@@ -11,7 +11,7 @@ class ViewLicencieController {
         $licencie = $this->licencieDAO->getID($licencieId);
 
         // Inclure la vue pour afficher les détails de la licence
-        include('views/view_clicencie.php');
+        include('views/view_licencie.php');
     }
 }
 
