@@ -6,9 +6,9 @@ class DeleteContactController {
         $this->contactDAO = $contactDAO;
     }
 
-    public function deleteContact($contactId) {
-        // Récupérer le contact à supprimer en utilisant son ID
-        $contact = $this->contactDAO->getById($contactId);
+    public function deleteContact($contactNom) {
+        // Récupérer le contact à supprimer en utilisant son nom
+        $contact = $this->contactDAO->getById($contactNom);
 
         if (!$contact) {
             // Le contact n'a pas été trouvé, vous pouvez rediriger ou afficher un message d'erreur
@@ -18,7 +18,7 @@ class DeleteContactController {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Supprimer le contact en appelant la méthode du modèle (ContactDAO)
-            if ($this->contactDAO->deleteById($contactId)) {
+            if ($this->contactDAO->deleteById($contactNom)) {
                 // Rediriger vers la page d'accueil après la suppression
                 header('Location:index.php');
                 exit();

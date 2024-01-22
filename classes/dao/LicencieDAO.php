@@ -10,7 +10,7 @@ public function __construct(Connexion $connexion){
 
     $this->connexion=$connexion;
 }
-// la methode qui suit permet d'ajouter des catégories 
+// la methode qui suit permet d'ajouter des licenciés
 public function create(LicencieModel $licencie)
 {
 
@@ -26,7 +26,7 @@ catch (PDOException $e) {
 }
 }
 
-// modifier une categorie
+// modifier un licencié
 public function update(LicencieModel $licencie){
 
 try{
@@ -41,7 +41,7 @@ catch (PDOException $e) {
 }
 }
 
-// supprimer des catégories => il nous faudra des identifiants pour cela 
+// supprimer des licenciés => il nous faudra des identifiants pour cela 
 
 public function deletebyID($id)
 {
@@ -57,7 +57,7 @@ public function deletebyID($id)
     }
 }
 
-// lister les catégories
+// lister les licenciés
 public function getAll() {
     try {
         $requete = $this->connexion->pdo->query("SELECT * FROM licencies");

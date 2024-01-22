@@ -6,9 +6,9 @@ class EditContactController {
         $this->contactDAO = $contactDAO;
     }
 
-    public function editContact($contactId) {
-        // Récupérer le contact à modifier en utilisant son ID
-        $contact = $this->contactDAO->getById($contactId);
+    public function editContact($contactNom) {
+        // Récupérer le contact à modifier en utilisant son Nom
+        $contact = $this->contactDAO->getById($contactNom);
 
         if (!$contact) {
             // Le contact n'a pas été trouvé, vous pouvez rediriger ou afficher un message d'erreur
@@ -34,7 +34,7 @@ class EditContactController {
             // Appeler la méthode du modèle (ContactDAO) pour mettre à jour le contact
             if ($this->contactDAO->update($contact)) {
                 // Rediriger vers la page de détails du contact après la modification
-                header('Location:index.php?page=edit&action=editContact&id=' . $contactId);
+                header('Location:index.php?page=edit&action=editContact&nom=' . $contactNom);
                 exit();
             } else {
                 // Gérer les erreurs de mise à jour du contact

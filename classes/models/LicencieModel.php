@@ -4,7 +4,7 @@ class LicencieModel {
 private $id;// numero du licencié 
 private $nom;// nom ----
 private $prenom;// premon---
-// le constructeur 
+ 
 private $contact ;
 private $categorie;
 public function __construct($id,$nom,$prenom,$contact,$categorie)

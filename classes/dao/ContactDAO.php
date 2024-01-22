@@ -19,14 +19,14 @@ class ContactDAO {
     }
 
     // MÃ©thode pour rÃ©cupÃ©rer un contact par son ID
-    public function getById($id) {
+    public function getByNom($nom) {
         try {
-            $stmt = $this->connexion->pdo->prepare("SELECT * FROM contacts WHERE id = ?");
-            $stmt->execute([$id]);
+            $stmt = $this->connexion->pdo->prepare("SELECT * FROM contacts WHERE nom = ?");
+            $stmt->execute([$nom]);
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($row) {
-                return new ContactModel($row['id'],$row['nom'], $row['prenom'], $row['email'], $row['telephone']);
+                return new ContactModel($row['nom'], $row['prenom'], $row['email'], $row['telephone']);
             } else {
                 return null; // Aucun contact trouvÃ© avec cet ID
             }
@@ -43,7 +43,7 @@ class ContactDAO {
             $contacts = [];
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $contacts[] = new ContactModel($row['id'],$row['nom'], $row['prenom'], $row['email'], $row['telephone']);
+                $contacts[] = new ContactModel($row['nom'], $row['prenom'], $row['email'], $row['telephone']);
             }
 
             return $contacts;
@@ -57,7 +57,7 @@ class ContactDAO {
     public function update(ContactModel $contact) {
         try {
             $stmt = $this->connexion->pdo->prepare("UPDATE contacts SET nom = ?, prenom = ?, email = ?, telephone = ? WHERE id = ?");
-            $stmt->execute([$contact->getNom(), $contact->getPrenom(), $contact->getEmail(), $contact->getTelephone(), $contact->getId()]);
+            $stmt->execute([$contact->getNom(), $contact->getPrenom(), $contact->getEmail(), $contact->getTelephone()]);
             return true;
         } catch (PDOException $e) {
             // GÃ©rer les erreurs de mise Ã  jour ici
@@ -65,11 +65,11 @@ class ContactDAO {
         }
     }
 
-    // MÃ©thode pour supprimer un contact par son ID
-    public function deleteById($id) {
+    // MÃ©thode pour supprimer un contact par son nom
+    public function deleteByNom($id) {
         try {
-            $stmt = $this->connexion->pdo->prepare("DELETE FROM contacts WHERE id = ?");
-            $stmt->execute([$id]);
+            $stmt = $this->connexion->pdo->prepare("DELETE FROM contacts WHERE nom = ?");
+            $stmt->execute([$nom]);
             return true;
         } catch (PDOException $e) {
             // GÃ©rer les erreurs de suppression ici

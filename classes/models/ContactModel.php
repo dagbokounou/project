@@ -16,7 +16,7 @@ class ContactModel {
 
     public function __construct($nom, $prenom, $email, $telephone) {
 
-        $this->id = $id;
+        
 
         $this->nom = $nom;
 
